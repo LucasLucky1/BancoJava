@@ -18,8 +18,7 @@ public class Main {
         //configurando mensagem de boas vindas
         String welcomeMessage = String.format("""
                 ***********************
-                Dados iniciais do cliente:
-                                
+                
                 Nome: %s
                 Tipo conta: Corrente
                 Saldo: R$ %f
@@ -35,31 +34,31 @@ public class Main {
                 Digite a opção desejada:
                 """,nomeCliente,saldo);
 
-        String shortMessage = String.format("""
-                
-                
-                ***********************          
-                Operações
-                                
-                1- Consultar saldos
-                2- Receber valor
-                3- Transferir valor
-                4- Sair
-                
-                *********************** 
-                """,saldo);
+//        String shortMessage = String.format("""
+//
+//
+//                ***********************
+//                Operações
+//
+//                1- Consultar saldos
+//                2- Receber valor
+//                3- Transferir valor
+//                4- Sair
+//
+//                ***********************
+//                """,saldo);
 
 
-        System.out.println(welcomeMessage);
-        int opcaoSelecionada;
-        opcaoSelecionada= scanner.nextInt();
+        int opcaoSelecionada = 0;
 
-        while(opcaoSelecionada <=4){
+        while(opcaoSelecionada !=4){
+            System.out.println(welcomeMessage);
+            opcaoSelecionada= scanner.nextInt();
 
             if(opcaoSelecionada == 1){
                 System.out.println("Você tem $" + saldo + " de saldo.");
-                System.out.println(shortMessage);
-                opcaoSelecionada= scanner.nextInt();
+
+
 
 
 
@@ -68,8 +67,7 @@ public class Main {
                 double recebimento = scanner.nextDouble();
                 saldo=saldo+recebimento;
                 System.out.println("Você tem $" + saldo + " de saldo.");
-                System.out.println(shortMessage);
-                opcaoSelecionada= scanner.nextInt();
+
 
 
             }else if(opcaoSelecionada == 3) {
@@ -78,12 +76,14 @@ public class Main {
                 saldo=saldo-transferencia;
                 System.out.println("Você tem $" + saldo + " de saldo.");
 
-                System.out.println(shortMessage);
-                opcaoSelecionada= scanner.nextInt();
+
 
             }else if(opcaoSelecionada == 4) {
                 System.out.println("Obrigado por usar nosso banco!");
                 break;
+            //condicional relativa a quaisquer outras entradas inválidas
+            }else{
+                System.out.println("Entrada Inválida, digite novamente uma opção.");
             }
 
         }
